@@ -1,5 +1,7 @@
 package cpgo
 
+import "sort"
+
 // Vector is equivalent to an array with functionalities like
 // push, pop etc.
 type Vector struct {
@@ -36,9 +38,9 @@ func (v *Vector) PopFront(input interface{}) {
 // Sort sorts the vector based on the value
 //
 // l: 0-based start index
-// r: 1-based end index 
-func (v *Vector) Sort(l,r int) error {
-	sort.Slice(v.vector[l:r], func(i,j int) bool {
+// r: 1-based end index
+func (v *Vector) Sort(l, r int) error {
+	sort.Slice(v.vector[l:r], func(i, j int) bool {
 		return v.vector[l+i].(Comparable).Less(v.vector[l+j])
 	})
 }
