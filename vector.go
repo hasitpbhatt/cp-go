@@ -42,3 +42,20 @@ func (v *Vector) Sort(l,r int) error {
 		return v.vector[l+i].(Comparable).Less(v.vector[l+j])
 	})
 }
+
+// Len gives the length/size of the vector
+func (v *Vector) Len() int {
+	return len(v.vector)
+}
+
+// Get retrieves the object at given position
+func (v *Vector) Get(i int) interface{} {
+	return v.vector[i]
+}
+
+// Set sets the object at given position
+//
+// Note: It doesn't validate anything, like object type or array length
+func (v *Vector) Set(i int, obj interface{}) interface{} {
+	v.vector[i] = obj
+}
